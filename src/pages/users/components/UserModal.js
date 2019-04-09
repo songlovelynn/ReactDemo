@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Modal, Form, Input } from 'antd';
+import { Modal, Form, Input, Avatar, Button, Radio } from 'antd';
 
 const FormItem = Form.Item;
 
@@ -8,8 +8,14 @@ class UserEditModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            value: null,
             visible: false,
         };
+    }
+
+    handleChange = (e) => {
+        this.setState({ value: e.target.value });
+        console.log(e.target.value);
     }
 
     showModelHandler = (e) => {
@@ -27,22 +33,18 @@ class UserEditModal extends Component {
 
     okHandler = () => {
         const { onOk } = this.props;
-        this.props.form.validateFields((err, values) => {
+        this.props.form.validateFields((err, value) => {
             if (!err) {
-                onOk(values);
+                onOk(value);
                 this.hideModelHandler();
+                console.log('111', value);
             }
         });
+
     };
 
     render() {
         const { children } = this.props;
-        const { getFieldDecorator } = this.props.form;
-        const { name, email, website } = this.props.record;
-        const formItemLayout = {
-            labelCol: { span: 6 },
-            wrapperCol: { span: 14 },
-        };
 
         return (
             <span>
@@ -50,43 +52,33 @@ class UserEditModal extends Component {
                     {children}
                 </span>
                 <Modal
-                    title="Edit User"
+                    width={300}
+                    title="选择职业"
                     visible={this.state.visible}
                     onOk={this.okHandler}
                     onCancel={this.hideModelHandler}
                 >
-                    <Form horizontal="true" onSubmit={this.okHandler}>
-                        <FormItem
-                            {...formItemLayout}
-                            label="Name"
-                        >
-                            {
-                                getFieldDecorator('name', {
-                                    initialValue: name,
-                                })(<Input />)
-                            }
-                        </FormItem>
-                        <FormItem
-                            {...formItemLayout}
-                            label="Email"
-                        >
-                            {
-                                getFieldDecorator('email', {
-                                    initialValue: email,
-                                })(<Input />)
-                            }
-                        </FormItem>
-                        <FormItem
-                            {...formItemLayout}
-                            label="Website"
-                        >
-                            {
-                                getFieldDecorator('website', {
-                                    initialValue: website,
-                                })(<Input />)
-                            }
-                        </FormItem>
-                    </Form>
+                    <Radio.Group
+                        buttonStyle="solid"
+                        onChange={this.props.handleValue}
+                    >
+                        <Radio.Button value="hj">花间</Radio.Button>
+                        <Radio.Button value="dj">毒经</Radio.Button>
+                        <Radio.Button value="bx">冰心</Radio.Button>
+                        <Radio.Button value="mw">莫问</Radio.Button>
+                        <Radio.Button value="cy">苍云</Radio.Button>
+                        <Radio.Button value="pl">蓬莱</Radio.Button>
+                        <Radio.Button value="cj">藏剑</Radio.Button>
+                        <Radio.Button value="bd">霸刀</Radio.Button>
+                        <Radio.Button value="hs">和尚</Radio.Button>
+                        <Radio.Button value="mj">明教</Radio.Button>
+                        <Radio.Button value="jc">剑纯</Radio.Button>
+                        <Radio.Button value="qc">气纯</Radio.Button>
+                        <Radio.Button value="nd">奶毒</Radio.Button>
+                        <Radio.Button value="nx">奶秀</Radio.Button>
+                        <Radio.Button value="ng">奶歌</Radio.Button>
+                        <Radio.Button value="nh">奶花</Radio.Button>
+                    </Radio.Group>
                 </Modal>
             </span>
         );

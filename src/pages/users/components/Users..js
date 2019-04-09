@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Col, Row, Card, Avatar, } from 'antd';
-import UserModal from './components/UserModal';
+import UserModal from './UserModal';
 
 export default class Users extends PureComponent {
 
@@ -11,9 +11,8 @@ export default class Users extends PureComponent {
         };
     }
 
-    handleValue = (e) => {
-        this.setState({ value: e });
-        console.log(e);
+    handleValue = () => {
+
     }
 
     render() {
@@ -31,7 +30,7 @@ export default class Users extends PureComponent {
                             {/* 左边pick */}
                             <Card title="PICK" style={{ width: 391 }}>
                                 <Card.Grid style={gridStyle}>
-                                    <UserModal handleValue={()=>this.handleValue()} >
+                                    <UserModal handleValue={(this.handleValue.bind(this))} >
                                         <Avatar size={80} alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
                                     </UserModal>
                                 </Card.Grid>
