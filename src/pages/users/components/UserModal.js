@@ -13,9 +13,12 @@ class UserEditModal extends Component {
         };
     }
 
+    handleValue = (e) => {
+        this.props.handleValue(e.target.value)
+    }
+
     handleChange = (e) => {
         this.setState({ value: e.target.value });
-        console.log(e.target.value);
     }
 
     showModelHandler = (e) => {
@@ -32,15 +35,8 @@ class UserEditModal extends Component {
     };
 
     okHandler = () => {
-        const { onOk } = this.props;
-        this.props.form.validateFields((err, value) => {
-            if (!err) {
-                onOk(value);
-                this.hideModelHandler();
-                console.log('111', value);
-            }
-        });
-
+        this.hideModelHandler();
+        console.log('id',this.props.id);
     };
 
     render() {
@@ -60,7 +56,7 @@ class UserEditModal extends Component {
                 >
                     <Radio.Group
                         buttonStyle="solid"
-                        onChange={this.props.handleValue}
+                        onChange={this.handleValue}
                     >
                         <Radio.Button value="hj">花间</Radio.Button>
                         <Radio.Button value="dj">毒经</Radio.Button>

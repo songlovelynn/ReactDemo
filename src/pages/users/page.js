@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
 import { Col, Row, Card, Avatar, } from 'antd';
 import UserModal from './components/UserModal';
+import jc from './img/jc.png';
+import qc from './img/qc.png';
+
 
 export default class Users extends PureComponent {
 
@@ -11,12 +14,13 @@ export default class Users extends PureComponent {
         };
     }
 
-    handleValue = (e) => {
-        this.setState({ value: e });
-        console.log(e);
+    handleValue = (value) => {
+        this.setState({ value: value });
     }
 
     render() {
+
+        const imgSrc = `http://101.132.32.14:8888/download?filename=/www/wwwroot/img/${this.state.value}.png`;
 
         const gridStyle = {
             width: 130,
@@ -31,13 +35,13 @@ export default class Users extends PureComponent {
                             {/* 左边pick */}
                             <Card title="PICK" style={{ width: 391 }}>
                                 <Card.Grid style={gridStyle}>
-                                    <UserModal handleValue={()=>this.handleValue()} >
-                                        <Avatar size={80} alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+                                    <UserModal id={1} handleValue={this.handleValue} >
+                                        <Avatar size={80} alt="example" src={imgSrc} />
                                     </UserModal>
                                 </Card.Grid>
                                 <Card.Grid style={gridStyle}>
-                                    <UserModal record={{}} >
-                                        <Avatar size={80} alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+                                    <UserModal id={2} handleValue={this.handleValue} >
+                                        <Avatar size={80} alt="example" src={imgSrc} />
                                     </UserModal>
                                 </Card.Grid>
                                 <Card.Grid style={gridStyle}>
