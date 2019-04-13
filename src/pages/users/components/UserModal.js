@@ -35,6 +35,7 @@ class UserEditModal extends Component {
     };
 
     okHandler = () => {
+        this.props.handleOk(this.props.id);
         this.hideModelHandler();
         console.log('id',this.props.id);
     };
