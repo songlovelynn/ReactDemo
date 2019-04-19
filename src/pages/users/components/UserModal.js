@@ -37,7 +37,7 @@ class UserEditModal extends Component {
     okHandler = () => {
         this.props.handleOk(this.props.id);
         this.hideModelHandler();
-        console.log('id',this.props.id);
+        console.log('id', this.props.id);
     };
 
     render() {
@@ -59,18 +59,25 @@ class UserEditModal extends Component {
                         buttonStyle="solid"
                         onChange={this.handleValue}
                     >
-                        <Radio.Button value="hj">花间</Radio.Button>
-                        <Radio.Button value="dj">毒经</Radio.Button>
-                        <Radio.Button value="bx">冰心</Radio.Button>
-                        <Radio.Button value="mw">莫问</Radio.Button>
+                        <Radio.Button value="xs">洗髓</Radio.Button>
+                        <Radio.Button value="tll">铁牢</Radio.Button>
+                        <Radio.Button value="mz">明尊</Radio.Button>
                         <Radio.Button value="cy">苍云</Radio.Button>
                         <Radio.Button value="pl">蓬莱</Radio.Button>
                         <Radio.Button value="cj">藏剑</Radio.Button>
                         <Radio.Button value="bd">霸刀</Radio.Button>
-                        <Radio.Button value="hs">和尚</Radio.Button>
-                        <Radio.Button value="mj">明教</Radio.Button>
+                        <Radio.Button value="tc">天策</Radio.Button>
+                        <Radio.Button value="gb">丐帮</Radio.Button>
+                        <Radio.Button value="jy">惊羽</Radio.Button>
+                        <Radio.Button value="tl">天罗</Radio.Button>
                         <Radio.Button value="jc">剑纯</Radio.Button>
                         <Radio.Button value="qc">气纯</Radio.Button>
+                        <Radio.Button value="hs">和尚</Radio.Button>
+                        <Radio.Button value="mj">明教</Radio.Button>
+                        <Radio.Button value="hj">花间</Radio.Button>
+                        <Radio.Button value="dj">毒经</Radio.Button>
+                        <Radio.Button value="bx">冰心</Radio.Button>
+                        <Radio.Button value="mw">莫问</Radio.Button>
                         <Radio.Button value="nd">奶毒</Radio.Button>
                         <Radio.Button value="nx">奶秀</Radio.Button>
                         <Radio.Button value="ng">奶歌</Radio.Button>
